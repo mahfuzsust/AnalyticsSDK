@@ -13,15 +13,13 @@ import android.os.Looper
 import android.telephony.TelephonyManager
 import android.util.DisplayMetrics
 import android.view.View
-import androidx.annotation.OptIn
-import androidx.media3.common.Format
-import androidx.media3.common.MimeTypes
-import androidx.media3.common.PlaybackException
-import androidx.media3.common.Player
-import androidx.media3.common.Tracks
-import androidx.media3.common.VideoSize
-import androidx.media3.common.util.UnstableApi
-import androidx.media3.exoplayer.ExoPlayer
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.Format
+import com.google.android.exoplayer2.PlaybackException
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.Tracks
+import com.google.android.exoplayer2.util.MimeTypes
+import com.google.android.exoplayer2.video.VideoSize
 import java.io.IOException
 import java.util.Locale
 import java.util.Timer
@@ -155,7 +153,7 @@ class AnalyticsManager(
         }
     }
 
-    @OptIn(UnstableApi::class) private fun collectTrackData(tracks: Tracks) {
+    private fun collectTrackData(tracks: Tracks) {
         for (trackGroup in tracks.groups) {
             for (i in 0 until trackGroup.length) {
                 val ev = getEvent()
